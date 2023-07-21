@@ -42,7 +42,7 @@ const Hero = () => {
               </ScrollLink>
             </div>
           </div>
-          <div>
+          <div className="mt-6">
             <img src={HeroImage} alt="heroimage" />
           </div>
         </div>
