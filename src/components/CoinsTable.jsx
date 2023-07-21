@@ -1,9 +1,7 @@
 import React, { useState, useMemo, useEffect } from "react";
-import axios from "axios";
 import { useTable, useGlobalFilter } from "react-table";
 import GlobalFilter from "./GlobalFilter";
 import coinsRequest from "./CoinsRequest";
-import DataLoader from "./DataLoader";
 
 const CoinsTable = () => {
   const [data, setData] = useState([]);

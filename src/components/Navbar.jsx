@@ -23,7 +23,7 @@ const Navbar = () => {
     setNav(!nav);
   };
   return (
-    <div className="overflow-hidden transition ease-in-out shadow-md sticky top-0 flex justify-between md:justify-between lg:justify-evenly items-center h-20 w-full mx-auto px-4 text-black  bg-white dark:bg-[#242424] dark:text-white z-30">
+    <div className="overflow-hidden transition ease-in-out shadow-md sticky top-0 flex justify-between md:justify-between lg:justify-evenly items-center h-20 w-full mx-auto px-4 z-30">
       <div className="flex items-center gap-4 group text-3xl font-bold cursor-pointer">
         <div className="w-[40px]">
           <img src={Logo} alt="" />
@@ -71,7 +71,7 @@ const Navbar = () => {
       <div
         className={
           nav
-            ? "flex flex-col items-center py-6 fixed left-0 top-0 h-full w-[45%] border-r bg-[#242424] dark:text-white dark:border-r-black ease-in-out duration-500"
+            ? "flex flex-col items-center py-6 fixed left-0 top-0 h-full w-[45%] border-r border-gray-700 bg-[#242424] ease-in-out duration-500"
             : "fixed left-[-150%]"
         }
       >
