@@ -83,6 +83,7 @@ const CryptoCoins = () => {
                 );
               })}
         </div>
+        <h1 className="text-[12px]">Powered by CoinGecko</h1>
       </div>
     </div>
   );
