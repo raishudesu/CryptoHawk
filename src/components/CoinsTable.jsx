@@ -95,9 +95,9 @@ const CoinsTable = () => {
     <div className="w-full min-h-screen max-h-fit p-6 flex flex-col gap-6 overflow-hidden">
       <>
         <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
-        <div className="w-full overflow-x-scroll rounded-lg">
+        <div className="w-full overflow-x-scroll rounded-lg shadow-md shadow-violet-500">
           <table
-            className="w-full min-w-[800px] text-center bg-gray-800 rounded-lg shadow-md shadow-violet-500"
+            className="w-full min-w-[800px] text-center bg-gray-800 rounded-lg"
             {...getTableProps()}
           >
             <thead className="text-xl bg-violet-500 h-20">

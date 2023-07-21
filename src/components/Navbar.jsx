@@ -72,7 +72,7 @@ const Navbar = () => {
         className={
           nav
             ? "flex flex-col items-center py-6 fixed left-0 top-0 h-full w-[45%] border-r bg-[#242424] dark:text-white dark:border-r-black ease-in-out duration-500"
-            : "fixed left-[-100%]"
+            : "fixed left-[-150%]"
         }
       >
         <Link
