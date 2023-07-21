@@ -23,7 +23,7 @@ const Navbar = () => {
     setNav(!nav);
   };
   return (
-    <div className="overflow-hidden transition ease-in-out shadow-md sticky top-0 flex justify-between md:justify-between lg:justify-evenly items-center h-20 w-full mx-auto px-4 z-30">
+    <div className="overflow-hidden bg-[#242424] shadow-md sticky top-0 flex justify-between md:justify-between lg:justify-evenly items-center h-20 w-full mx-auto px-4 z-30">
       <div className="flex items-center gap-4 group text-3xl font-bold cursor-pointer">
         <div className="w-[40px]">
           <img src={Logo} alt="" />
@@ -37,7 +37,7 @@ const Navbar = () => {
       <ul className="hidden md:flex justify-end 2xl:w-[40%]">
         <RouterLink
           to="/"
-          className="p-3 uppercase hover:text-[#FFD700] transition ease-in-out rounded-xl font-semibold cursor-pointer"
+          className="p-3 uppercase hover:text-[#FFD700] rounded-xl font-semibold cursor-pointer"
         >
           Home
         </RouterLink>
@@ -47,7 +47,7 @@ const Navbar = () => {
           smooth={true}
           offset={-100}
           duration={500}
-          className="p-3 uppercase hover:text-[#FFD700] transition ease-in-out rounded-xl font-semibold cursor-pointer"
+          className="p-3 uppercase hover:text-[#FFD700] rounded-xl font-semibold cursor-pointer"
         >
           Market
         </Link>
@@ -56,7 +56,7 @@ const Navbar = () => {
           spy={true}
           smooth={true}
           duration={500}
-          className="p-3 uppercase hover:text-[#FFD700] transition ease-in-out rounded-xl font-semibold cursor-pointer"
+          className="p-3 uppercase hover:text-[#FFD700] rounded-xl font-semibold cursor-pointer"
         >
           About Us
         </Link>
