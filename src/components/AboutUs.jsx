@@ -3,7 +3,7 @@ import AboutUsData from "../assets/aboutUs.json";
 
 const AboutUs = () => {
   return (
-    <div className="w-full max-h-fit overflow-hidden p-4">
+    <div id="about" className="w-full max-h-fit overflow-hidden p-4">
       <div className="flex justify-center items-center">
         <div className="flex flex-col justify-center items-center gap-6 text-center xl:text-start">
           <div className="flex flex-col gap-6 max-w-7xl">
@@ -16,10 +16,10 @@ const AboutUs = () => {
                   return (
                     <li
                       key={index}
-                      className="shadow-md shadow-violet-500 rounded-lg p-4 md:w-[75%] xl:w-[20%] xl:p-6"
+                      className="shadow-md shadow-violet-500 rounded-lg p-4 md:w-[75%] xl:w-[20%] xl:p-6 hover:shadow-lg hover:shadow-[#FFD700] transition ease-in-out"
                     >
                       <p>
-                        <span className="font-semibold text-[#FFD700]">
+                        <span className="font-bold text-[#FFD700] uppercase">
                           {main}:
                         </span>{" "}
                         <br />

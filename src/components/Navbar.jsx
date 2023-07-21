@@ -60,7 +60,7 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <ul className="hidden md:flex justify-end 2xl:w-[60%]">
+      <ul className="hidden md:flex justify-end 2xl:w-[40%]">
         <Link
           to="top"
           spy={true}
@@ -71,34 +71,23 @@ const Navbar = () => {
           Home
         </Link>
         <Link
-          to="about"
+          to="market"
           spy={true}
           smooth={true}
-          offset={-250}
+          offset={-100}
           duration={500}
           className="p-3 uppercase hover:text-[#FFD700] transition ease-in-out rounded-xl font-semibold cursor-pointer"
         >
           Market
         </Link>
         <Link
-          to="projects"
+          to="about"
           spy={true}
           smooth={true}
-          offset={-50}
           duration={500}
           className="p-3 uppercase hover:text-[#FFD700] transition ease-in-out rounded-xl font-semibold cursor-pointer"
         >
           About Us
-        </Link>
-        <Link
-          to="contact"
-          spy={true}
-          smooth={true}
-          offset={50}
-          duration={500}
-          className="p-3 uppercase hover:text-[#FFD700] transition ease-in-out rounded-xl font-semibold cursor-pointer"
-        >
-          Community
         </Link>
         <div
           onClick={toggleTheme}
@@ -142,7 +131,7 @@ const Navbar = () => {
             Home
           </Link>
           <Link
-            to="about"
+            to="market"
             spy={true}
             smooth={true}
             offset={-100}
@@ -153,7 +142,7 @@ const Navbar = () => {
             Market
           </Link>
           <Link
-            to="projects"
+            to="about"
             spy={true}
             smooth={true}
             offset={-100}
@@ -162,17 +151,6 @@ const Navbar = () => {
             className="p-3 hover:text-[#FFD700] rounded-xl font-semibold cursor-pointer "
           >
             About Us
-          </Link>
-          <Link
-            to="contact"
-            spy={true}
-            smooth={true}
-            offset={50}
-            duration={500}
-            onClick={handleNav}
-            className="p-3 hover:text-[#FFD700] rounded-xl font-semibold cursor-pointer "
-          >
-            Community
           </Link>
           <div
             onClick={toggleTheme}

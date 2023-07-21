@@ -1,11 +1,13 @@
 import React from "react";
+import { Link as ScrollLink } from "react-scroll";
+import OurApp from "./OurApp";
 import HeroImage from "../assets/hero-image-no-bg.png";
 import { BiCheck } from "react-icons/bi";
 
 const Hero = () => {
   return (
     <div className="w-full max-h-fit p-4 overflow-hidden">
-      <div className="flex justify-center items-center">
+      <div className="flex flex-col justify-center items-center">
         <div className="flex flex-col xl:flex-row justify-center items-center">
           <div className="flex flex-col gap-6 text-center  xl:text-start xl:w-[50%] xl:p-4">
             <h1 className="text-6xl font-bold xl:w-[75%]">
@@ -28,15 +30,23 @@ const Hero = () => {
               </li>
             </ul>
             <div>
-              <button className="bg-[#FFD700] text-[#242424] font-semibold py-3 px-6 rounded-full">
+              <ScrollLink
+                to="market"
+                spy={true}
+                offset={-100}
+                smooth={true}
+                duration={500}
+                className="bg-[#FFD700] text-[#242424] cursor-pointer font-semibold py-3 px-6 rounded-full hover:bg-violet-500 hover:text-gray-100 transition ease-in-out"
+              >
                 Check Market
-              </button>
+              </ScrollLink>
             </div>
           </div>
           <div>
             <img src={HeroImage} alt="heroimage" />
           </div>
         </div>
+        <OurApp />
       </div>
     </div>
   );

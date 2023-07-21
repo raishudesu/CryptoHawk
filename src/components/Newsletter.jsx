@@ -12,7 +12,7 @@ const Newsletter = () => {
             placeholder="Your Email"
             className="rounded-full px-6 py-3"
           />
-          <button className=" bg-[#FFD700] text-black font-semibold rounded-full px-6 py-3">
+          <button className=" bg-[#FFD700] text-black font-semibold rounded-full px-6 py-3 hover:bg-violet-500 hover:text-gray-100 transition ease-in-out">
             Subscribe
           </button>
         </div>
