@@ -38,7 +38,7 @@ const CryptoCoins = () => {
             return (
               <div
                 key={index}
-                className=" bg-gray-800 p-6 rounded-xl hover:scale-[1.05] transition ease-in-out shadow-md shadow-violet-500 hover:shadow-[#FFD700] hover:shadow-lg"
+                className="flex justify-center items-center bg-gray-800 p-6 rounded-xl hover:scale-[1.05] transition ease-in-out shadow-md shadow-violet-500 hover:shadow-[#FFD700] hover:shadow-lg"
               >
                 <div className="flex flex-col justify-center items-center gap-2">
                   <div className="max-w-[60px]">
