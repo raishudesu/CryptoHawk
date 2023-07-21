@@ -1,22 +1,25 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import CryptoCoins from "./components/CryptoCoins";
-import AboutUs from "./components/AboutUs";
-import Community from "./components/Community";
 import Footer from "./components/Footer";
+import MainPage from "./pages/MainPage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CoinsTable from "./components/CoinsTable";
+import ScrollToTop from "./components/ScrollToTop";
 import "./App.css";
 
 function App() {
   return (
-    <div id="top" className="font-poppins text-gray-100">
-      <Navbar />
-      <Hero />
-      <CryptoCoins />
-      <AboutUs />
-      <Community />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <ScrollToTop />
+      <div id="top" className="font-poppins text-gray-100 select-none">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/morestats" element={<CoinsTable />} />
+        </Routes>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
