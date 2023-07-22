@@ -7,7 +7,7 @@
 <p>
 Stay updated with live prices, market cap, and trading volumes of top cryptocurrencies.
 
-CoinGecko is a popular cryptocurrency data platform that provides comprehensive information about thousands of cryptocurrencies. CoinGecko offers a public API that allows developers to access a wide range of cryptocurrency-related data programmatically.
+This project is powered by CoinGecko API, which is a popular cryptocurrency data platform that provides comprehensive information about thousands of cryptocurrencies. CoinGecko offers a public API that allows developers to access a wide range of cryptocurrency-related data programmatically.
 
 </p>
 
