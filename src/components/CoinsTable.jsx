@@ -5,6 +5,12 @@ import coinsRequest from "./CoinsRequest";
 
 const CoinsTable = () => {
   const [data, setData] = useState([]);
+  const [showMore, setShowMore] = useState(false);
+  const initialDataSize = 25;
+
+  const handleShowMoreClick = () => {
+    setShowMore(true);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -112,23 +118,31 @@ const CoinsTable = () => {
             ))}
           </thead>
           <tbody {...getTableBodyProps()}>
-            {rows.map((row) => {
-              prepareRow(row);
-              return (
-                <tr {...row.getRowProps()}>
-                  {row.cells.map((cell) => (
-                    <td
-                      className="border-b-[1px] border-r-[1px] border-gray-500"
-                      {...cell.getCellProps()}
-                    >
-                      {cell.render("Cell")}
-                    </td>
-                  ))}
-                </tr>
-              );
-            })}
+            {rows
+              .slice(0, showMore ? undefined : initialDataSize)
+              .map((row) => {
+                prepareRow(row);
+                return (
+                  <tr {...row.getRowProps()}>
+                    {row.cells.map((cell) => (
+                      <td
+                        className="border-b-[1px] border-r-[1px] border-gray-500"
+                        {...cell.getCellProps()}
+                      >
+                        {cell.render("Cell")}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
           </tbody>
         </table>
+        {/* Show "Show More" button if there are more items to show */}
+        {rows.length > initialDataSize && !showMore && (
+          <button className="my-2 py-3 px-6" onClick={handleShowMoreClick}>
+            Show More
+          </button>
+        )}
       </div>
     </div>
   );
