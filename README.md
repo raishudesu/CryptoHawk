@@ -1,8 +1,8 @@
 <div align='center'><img style="width:16%" src='./src/assets/logo-icon.png'/></div>
 
-## CryptoHawk
+<h1 align='center'>CryptoHawk</h1>
 
-# About
+## About
 
 <p>
 Stay updated with live prices, market cap, and trading volumes of top cryptocurrencies.
@@ -13,7 +13,7 @@ CoinGecko is a popular cryptocurrency data platform that provides comprehensive 
 
 Live Demo: <a href="https://crypto-hawk.vercel.app" target="_blank">CryptoHawk</a>
 
-# Frameworks used:
+## Frameworks used:
 
 - React JS
 - Tailwind CSS
