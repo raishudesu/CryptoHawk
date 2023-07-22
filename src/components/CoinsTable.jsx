@@ -23,10 +23,10 @@ const CoinsTable = () => {
   const tableCols = useMemo(
     () => [
       {
-        Header: "Icon", // New column for the image
-        accessor: "image", // Assuming your data has an "image" field with the image URL or path
+        Header: "Coin",
+        accessor: "image",
         Cell: ({ cell }) => (
-          <div className="w-full flex justify-center">
+          <div className="w-full flex justify-center p-2">
             <img
               src={cell.value}
               alt="Coin"
@@ -38,6 +38,9 @@ const CoinsTable = () => {
       {
         Header: "Name",
         accessor: "name",
+        Cell: ({ cell }) => (
+          <span className="text-xl font-semibold">{cell.value}</span>
+        ),
       },
       {
         Header: "Symbol",
@@ -90,45 +93,43 @@ const CoinsTable = () => {
   );
   const { globalFilter } = state;
   return (
-    <div className="w-full min-h-screen max-h-fit p-6 flex flex-col gap-6 overflow-hidden">
-      <>
-        <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
-        <div className="w-full overflow-x-scroll rounded-lg shadow-md shadow-violet-500">
-          <table
-            className="w-full min-w-[800px] text-center bg-gray-800 rounded-lg"
-            {...getTableProps()}
-          >
-            <thead className="text-xl bg-violet-500 h-20">
-              {headerGroups.map((headerGroup) => (
-                <tr {...headerGroup.getHeaderGroupProps()}>
-                  {headerGroup.headers.map((column) => (
-                    <th {...column.getHeaderProps()}>
-                      {column.render("Header")}
-                    </th>
+    <div className="w-full min-h-screen max-h-fit p-6 flex flex-col gap-6 overflow-hidden items-center">
+      <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
+      <div className="w-full lg:max-w-[75%] overflow-x-scroll rounded-lg shadow-md shadow-violet-500 scrollbar-thin scrollbar-rounded scrollbar-track-violet-500 scrollbar-thumb-gray-300 lg:scrollbar-none">
+        <table
+          className="w-full min-w-[800px] text-center bg-gray-800 rounded-lg"
+          {...getTableProps()}
+        >
+          <thead className="text-xl bg-violet-500 h-20">
+            {headerGroups.map((headerGroup) => (
+              <tr {...headerGroup.getHeaderGroupProps()}>
+                {headerGroup.headers.map((column) => (
+                  <th {...column.getHeaderProps()}>
+                    {column.render("Header")}
+                  </th>
+                ))}
+              </tr>
+            ))}
+          </thead>
+          <tbody {...getTableBodyProps()}>
+            {rows.map((row) => {
+              prepareRow(row);
+              return (
+                <tr {...row.getRowProps()}>
+                  {row.cells.map((cell) => (
+                    <td
+                      className="border-b-[1px] border-r-[1px] border-gray-500"
+                      {...cell.getCellProps()}
+                    >
+                      {cell.render("Cell")}
+                    </td>
                   ))}
                 </tr>
-              ))}
-            </thead>
-            <tbody {...getTableBodyProps()}>
-              {rows.map((row) => {
-                prepareRow(row);
-                return (
-                  <tr {...row.getRowProps()}>
-                    {row.cells.map((cell) => (
-                      <td
-                        className="border-b-[1px] border-r-[1px] border-gray-500"
-                        {...cell.getCellProps()}
-                      >
-                        {cell.render("Cell")}
-                      </td>
-                    ))}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-      </>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

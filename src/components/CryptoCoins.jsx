@@ -68,7 +68,13 @@ const CryptoCoins = () => {
             );
           })}
         </div>
-        <h1 className="text-[12px]">Powered by CoinGecko</h1>
+        <a
+          href="https://www.coingecko.com"
+          target="_blank"
+          className="text-[12px] hover:underline"
+        >
+          Powered by CoinGecko
+        </a>
         <button
           className="bg-[#FFD700] text-[#242424] cursor-pointer font-semibold py-3 px-6 rounded-full hover:bg-violet-500 hover:text-gray-100 transition ease-in-out"
           onClick={() => goToMoreStats()}

@@ -11,7 +11,7 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <div id="top" className="font-poppins text-gray-100 select-none">
+      <div id="top" className="font-poppins text-gray-100">
         <Navbar />
         <Routes>
           <Route path="/" element={<MainPage />} />
