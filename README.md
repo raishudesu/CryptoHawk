@@ -13,7 +13,7 @@ This project is powered by CoinGecko API, which is a popular cryptocurrency data
 
 Live Demo: <a href="https://crypto-hawk.vercel.app" target="_blank">CryptoHawk</a>
 
-## Frameworks used:
+## Developed with:
 
 - React JS
 - Tailwind CSS
