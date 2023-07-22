@@ -1,8 +1,20 @@
-# React + Vite
+<div align='center'><img style="width:16%" src='./src/assets/logo-icon.png'/></div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## CryptoHawk
 
-Currently, two official plugins are available:
+# About
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<p>
+Stay updated with live prices, market cap, and trading volumes of top cryptocurrencies.
+
+CoinGecko is a popular cryptocurrency data platform that provides comprehensive information about thousands of cryptocurrencies. CoinGecko offers a public API that allows developers to access a wide range of cryptocurrency-related data programmatically.
+
+</p>
+
+Live Demo: <a href="https://crypto-hawk.vercel.app" target="_blank">CryptoHawk</a>
+
+#Frameworks used:
+
+- React JS
+- Tailwind CSS
+- CoinGecko API
