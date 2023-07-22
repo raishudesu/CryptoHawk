@@ -13,8 +13,11 @@ CoinGecko is a popular cryptocurrency data platform that provides comprehensive 
 
 Live Demo: <a href="https://crypto-hawk.vercel.app" target="_blank">CryptoHawk</a>
 
-#Frameworks used:
+# Frameworks used:
 
 - React JS
 - Tailwind CSS
 - CoinGecko API
+
+<h1 align='center'>Project Snapshot</h1>
+<img align='center' src='./src/assets/cryptohawksnapshot.png'></img>
