@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect } from "react";
 import { useTable, useGlobalFilter } from "react-table";
 import GlobalFilter from "./GlobalFilter";
 import coinsRequest from "./CoinsRequest";
+import DataList from "../assets/data.json";
 
 const CoinsTable = () => {
   const [data, setData] = useState([]);
@@ -29,42 +30,43 @@ const CoinsTable = () => {
   const tableCols = useMemo(
     () => [
       {
+        Header: "#",
+        id: "index",
+        accessor: (row, index) => index + 1,
+      },
+
+      {
         Header: "Coin",
-        accessor: "image",
+        accessor: (dataRow) => ({
+          image: dataRow.image,
+          symbol: dataRow.symbol,
+        }),
         Cell: ({ cell }) => (
-          <div className="w-full flex justify-center p-2">
-            <img
-              src={cell.value}
-              alt="Coin"
-              style={{ width: "50px", height: "50px" }}
-            />
+          <div className="w-full flex justify-center items-center gap-2 p-2">
+            <div className="w-[30%] flex items-center gap-2">
+              <img
+                src={cell.value.image}
+                alt="Coin"
+                style={{ width: "35px", height: "35px" }}
+              />
+              <span className="text-lg uppercase">{cell.value.symbol}</span>
+            </div>
           </div>
-        ), // Render the image
+        ),
       },
       {
         Header: "Name",
         accessor: "name",
-        Cell: ({ cell }) => (
-          <span className="text-xl font-semibold">{cell.value}</span>
-        ),
+        Cell: ({ cell }) => <div>{cell.value}</div>,
       },
       {
-        Header: "Symbol",
-        accessor: "symbol",
-      },
-      {
-        Header: "Current Price",
+        Header: "Price",
         accessor: "current_price",
         Cell: ({ cell }) =>
           `$${parseFloat(cell.value).toLocaleString(undefined, {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2,
           })}`,
-      },
-      {
-        Header: "Market Cap",
-        accessor: "market_cap",
-        Cell: ({ cell }) => `$${parseFloat(cell.value).toLocaleString()}`,
       },
       {
         Header: "24h",
@@ -78,6 +80,16 @@ const CoinsTable = () => {
             {cell.value}%
           </span>
         ),
+      },
+      {
+        Header: "Volume",
+        accessor: "total_volume",
+        Cell: ({ cell }) => `$${parseFloat(cell.value).toLocaleString()}`,
+      },
+      {
+        Header: "Market Cap",
+        accessor: "market_cap",
+        Cell: ({ cell }) => `$${parseFloat(cell.value).toLocaleString()}`,
       },
     ],
     []
@@ -106,7 +118,7 @@ const CoinsTable = () => {
           className="w-full min-w-[800px] text-center bg-gray-800 rounded-lg"
           {...getTableProps()}
         >
-          <thead className="text-xl bg-violet-500 h-20">
+          <thead className="text-lg bg-violet-500 h-20">
             {headerGroups.map((headerGroup) => (
               <tr {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map((column) => (
@@ -126,7 +138,7 @@ const CoinsTable = () => {
                   <tr {...row.getRowProps()}>
                     {row.cells.map((cell) => (
                       <td
-                        className="border-b-[1px] border-r-[1px] border-gray-500"
+                        className="shadow-xl shadow-b-black border-gray-500"
                         {...cell.getCellProps()}
                       >
                         {cell.render("Cell")}
