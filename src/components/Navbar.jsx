@@ -23,44 +23,47 @@ const Navbar = () => {
     setNav(!nav);
   };
   return (
-    <div className="overflow-hidden bg-[#242424] shadow-md sticky top-0 flex justify-between md:justify-between lg:justify-evenly items-center h-20 w-full mx-auto px-4 z-30">
-      <div className="flex items-center gap-4 group text-3xl font-bold cursor-pointer">
-        <div className="w-[40px]">
-          <img src={Logo} alt="" />
+    <div className="overflow-hidden bg-[#242424] shadow-md sticky top-0 flex justify-between sm:justify-center items-center h-20 w-full mx-auto px-4 z-30">
+      <div className="w-[75%] flex justify-between items-center">
+        <div className="flex items-center gap-4 group text-2xl font-bold uppercase cursor-pointer">
+          <div className="w-[35px]">
+            <img src={Logo} alt="" />
+          </div>
+
+          <Link to="top" spy={true} smooth={true} duration={500}>
+            KryptoHawk
+          </Link>
         </div>
 
-        <Link to="top" spy={true} smooth={true} duration={500}>
-          CryptoHawk
-        </Link>
+        <ul className="hidden md:flex">
+          <RouterLink
+            to="/"
+            className="p-3 uppercase hover:text-[#FFD700] rounded-xl font-semibold cursor-pointer"
+          >
+            Home
+          </RouterLink>
+          <Link
+            to="market"
+            spy={true}
+            smooth={true}
+            offset={-100}
+            duration={500}
+            className="p-3 uppercase hover:text-[#FFD700] rounded-xl font-semibold cursor-pointer"
+          >
+            Market
+          </Link>
+          <Link
+            to="about"
+            spy={true}
+            smooth={true}
+            duration={500}
+            className="p-3 uppercase hover:text-[#FFD700] rounded-xl font-semibold cursor-pointer"
+          >
+            About Us
+          </Link>
+        </ul>
       </div>
 
-      <ul className="hidden md:flex justify-end 2xl:w-[40%]">
-        <RouterLink
-          to="/"
-          className="p-3 uppercase hover:text-[#FFD700] rounded-xl font-semibold cursor-pointer"
-        >
-          Home
-        </RouterLink>
-        <Link
-          to="market"
-          spy={true}
-          smooth={true}
-          offset={-100}
-          duration={500}
-          className="p-3 uppercase hover:text-[#FFD700] rounded-xl font-semibold cursor-pointer"
-        >
-          Market
-        </Link>
-        <Link
-          to="about"
-          spy={true}
-          smooth={true}
-          duration={500}
-          className="p-3 uppercase hover:text-[#FFD700] rounded-xl font-semibold cursor-pointer"
-        >
-          About Us
-        </Link>
-      </ul>
       <div onClick={handleNav} className="block md:hidden">
         {nav ? (
           <AiOutlineClose size={20} className="cursor-pointer" />
@@ -71,7 +74,7 @@ const Navbar = () => {
       <div
         className={
           nav
-            ? "flex flex-col items-center py-6 fixed left-0 top-0 h-full w-[45%] border-r border-gray-700 bg-[#242424] ease-in-out duration-500"
+            ? "flex flex-col items-center py-6 fixed left-0 top-0 h-full w-[75%] border-r border-gray-700 bg-[#242424] ease-in-out duration-500"
             : "fixed left-[-150%]"
         }
       >

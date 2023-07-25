@@ -14,7 +14,7 @@ const Footer = () => {
         <div className="flex flex-col justify-center items-center gap-2">
           <div className="flex justify-center items-center gap-1">
             <AiOutlineCopyrightCircle className="text-[#FFD700]" />
-            <h1 className="font-semibold">CryptoHawk 2023</h1>
+            <h1 className="font-bold uppercase">KryptoHawk 2023</h1>
           </div>
           <p>All Rights Reserved.</p>
         </div>

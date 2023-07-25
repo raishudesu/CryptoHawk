@@ -2,7 +2,6 @@ import React, { useState, useMemo, useEffect } from "react";
 import { useTable, useGlobalFilter } from "react-table";
 import GlobalFilter from "./GlobalFilter";
 import coinsRequest from "./CoinsRequest";
-import DataList from "../assets/data.json";
 
 const CoinsTable = () => {
   const [data, setData] = useState([]);
@@ -135,10 +134,13 @@ const CoinsTable = () => {
               .map((row) => {
                 prepareRow(row);
                 return (
-                  <tr {...row.getRowProps()}>
+                  <tr
+                    className="shadow-md hover:shadow-[#FED700] transition ease-in-out"
+                    {...row.getRowProps()}
+                  >
                     {row.cells.map((cell) => (
                       <td
-                        className="shadow-xl shadow-b-black border-gray-500"
+                        className="hover:scale-[1.05] transition ease-in-out"
                         {...cell.getCellProps()}
                       >
                         {cell.render("Cell")}

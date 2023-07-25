@@ -26,8 +26,11 @@ const CryptoCoins = () => {
     navigate("/morestats");
   };
   return (
-    <div id="market" className="w-full max-h-fit p-4 overflow-hidden">
-      <div className="flex flex-col justify-center items-center gap-6">
+    <div
+      id="market"
+      className="w-full max-h-fit p-4 overflow-hidden flex justify-center"
+    >
+      <div className="w-[75%] flex flex-col justify-center items-center gap-6">
         <h1 className="text-center text-3xl font-semibold">Current Market</h1>
         <div
           onLoad={() => setLoading(false)}
@@ -76,7 +79,7 @@ const CryptoCoins = () => {
           Powered by CoinGecko
         </a>
         <button
-          className="bg-[#FFD700] text-[#242424] cursor-pointer font-semibold py-3 px-6 rounded-full hover:bg-violet-500 hover:text-gray-100 transition ease-in-out"
+          className="bg-[#FFD700] text-[#242424] cursor-pointer font-bold uppercase py-4 px-8 rounded-full hover:bg-violet-500 hover:text-gray-100 transition ease-in-out"
           onClick={() => goToMoreStats()}
         >
           More Stats
