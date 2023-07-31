@@ -1,26 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
-import DataLoader from "./DataLoader";
 import { FiArrowDown, FiArrowUp } from "react-icons/fi";
-import coinsRequest from "./CoinsRequest";
+import CoinsRequest from "./CoinsRequest";
+import { BiLoaderAlt } from "react-icons/bi";
 
 const CryptoCoins = () => {
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await coinsRequest();
-        setData(response);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
+  const {
+    isLoading,
+    data: coins = [], //ALWAYS PUT AN INITIAL VALUE, AN EMPTY ARRAY SO THAT IT WONT GIVE AN ERROR WHEN
+    isError, // DATA IS STILL NOT AVAILABLE
+  } = useQuery({
+    queryKey: ["coins"],
+    queryFn: CoinsRequest,
+    refetchOnWindowFocus: false,
+  });
 
   const goToMoreStats = () => {
     navigate("/morestats");
@@ -32,12 +28,10 @@ const CryptoCoins = () => {
     >
       <div className="w-[75%] flex flex-col justify-center items-center gap-6">
         <h1 className="text-center text-3xl font-semibold">Current Market</h1>
-        <div
-          onLoad={() => setLoading(false)}
-          className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 min-h-screen max-h-fit"
-        >
-          {loading && <DataLoader />}
-          {data.slice(0, 12).map((item, index) => {
+        {isLoading && <BiLoaderAlt size={30} className="animate-spin" />}
+        {isError && <h1>Error fetching data, please try again later.</h1>}
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 min-h-screen max-h-fit">
+          {coins.slice(0, 12).map((item, index) => {
             return (
               <div
                 key={index}

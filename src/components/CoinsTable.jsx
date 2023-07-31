@@ -1,10 +1,14 @@
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import { useTable, useGlobalFilter } from "react-table";
+import { useQuery } from "@tanstack/react-query";
 import GlobalFilter from "./GlobalFilter";
-import coinsRequest from "./CoinsRequest";
+import CoinsRequest from "./CoinsRequest";
+import { BiLoaderAlt } from "react-icons/bi";
+import { MdOutlineArrowBack } from "react-icons/md";
 
 const CoinsTable = () => {
-  const [data, setData] = useState([]);
+  const navigate = useNavigate();
   const [showMore, setShowMore] = useState(false);
   const initialDataSize = 25;
 
@@ -12,20 +16,18 @@ const CoinsTable = () => {
     setShowMore(true);
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await coinsRequest();
-        setData(response);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
+  const {
+    isLoading,
+    data: coins = [], //ALWAYS PUT AN INITIAL VALUE, AN EMPTY ARRAY SO THAT IT WONT GIVE AN ERROR WHEN
+    isError, // DATA IS STILL NOT AVAILABLE
+    error,
+  } = useQuery({
+    queryKey: ["coins"],
+    queryFn: CoinsRequest,
+    refetchOnWindowFocus: false,
+  });
 
-    fetchData();
-  }, []);
-
-  const tableData = useMemo(() => data, [data]);
+  const tableData = useMemo(() => coins, [isLoading, error]);
   const tableCols = useMemo(
     () => [
       {
@@ -111,7 +113,14 @@ const CoinsTable = () => {
   const { globalFilter } = state;
   return (
     <div className="w-full min-h-screen max-h-fit p-6 flex flex-col gap-6 overflow-hidden items-center">
+      <div className="w-full lg:max-w-[75%]">
+        <button className="self-start" onClick={() => navigate("/")}>
+          <MdOutlineArrowBack size={30} />
+        </button>
+      </div>
       <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
+      {isLoading && <BiLoaderAlt size={30} className="animate-spin" />}
+      {isError && <h1>Error fetching data, please try again later.</h1>}
       <div className="w-full lg:max-w-[75%] overflow-x-scroll rounded-lg shadow-md shadow-violet-500 scrollbar-thin scrollbar-rounded scrollbar-track-violet-500 scrollbar-thumb-gray-300 lg:scrollbar-none">
         <table
           className="w-full min-w-[800px] text-center bg-gray-800 rounded-lg"
