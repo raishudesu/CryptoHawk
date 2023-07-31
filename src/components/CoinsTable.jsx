@@ -28,6 +28,7 @@ const CoinsTable = () => {
   });
 
   const tableData = useMemo(() => coins, [isLoading, error]);
+
   const tableCols = useMemo(
     () => [
       {
