@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { FiArrowDown, FiArrowUp } from "react-icons/fi";
@@ -12,6 +12,7 @@ const CryptoCoins = () => {
     isLoading,
     data: coins = [], //ALWAYS PUT AN INITIAL VALUE, AN EMPTY ARRAY SO THAT IT WONT GIVE AN ERROR WHEN
     isError, // DATA IS STILL NOT AVAILABLE
+    error,
   } = useQuery({
     queryKey: ["coins"],
     queryFn: CoinsRequest,
@@ -21,6 +22,8 @@ const CryptoCoins = () => {
   const goToMoreStats = () => {
     navigate("/morestats");
   };
+
+  const coinsData = useMemo(() => coins, [isLoading, error]);
   return (
     <div
       id="market"
@@ -28,10 +31,10 @@ const CryptoCoins = () => {
     >
       <div className="w-[75%] flex flex-col justify-center items-center gap-6">
         <h1 className="text-center text-3xl font-semibold">Current Market</h1>
-        {isLoading && <BiLoaderAlt size={30} className="animate-spin" />}
-        {isError && <h1>Error fetching data, please try again later.</h1>}
+        {isLoading ? <BiLoaderAlt size={30} className="animate-spin" /> : null}
+        {isError ? <h1>Error fetching data, please try again later.</h1> : null}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 min-h-screen max-h-fit">
-          {coins.slice(0, 12).map((item, index) => {
+          {coinsData.slice(0, 12).map((item, index) => {
             return (
               <div
                 key={index}

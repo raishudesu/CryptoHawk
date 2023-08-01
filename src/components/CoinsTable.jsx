@@ -120,8 +120,8 @@ const CoinsTable = () => {
         </button>
       </div>
       <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
-      {isLoading && <BiLoaderAlt size={30} className="animate-spin" />}
-      {isError && <h1>Error fetching data, please try again later.</h1>}
+      {isLoading ? <BiLoaderAlt size={30} className="animate-spin" /> : null}
+      {isError ? <h1>Error fetching data, please try again later.</h1> : null}
       <div className="w-full lg:max-w-[75%] overflow-x-scroll rounded-lg shadow-md shadow-violet-500 scrollbar-thin scrollbar-rounded scrollbar-track-violet-500 scrollbar-thumb-gray-300 lg:scrollbar-none">
         <table
           className="w-full min-w-[800px] text-center bg-gray-800 rounded-lg"
